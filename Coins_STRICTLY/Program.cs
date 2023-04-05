@@ -17,7 +17,7 @@ bool CheckSequence(char[] seq, int length, int numberOfStriclty)
     int strictlyHowMuch = 0;
     int currentStrictlyLength = 0;
 
-    for (int i = 0; i < seq.Length; i++)
+    for (int i = 0; i < seq.Length -1 ; i++)
     {
         if (seq[i] == seq[i + 1])
         {
