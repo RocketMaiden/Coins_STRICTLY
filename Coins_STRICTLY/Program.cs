@@ -1,12 +1,10 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
-char [] sequence = new char[70];
+﻿char [] sequence = new char[70];
 for (int i = 0; i < sequence.Length; i++)
 {
     sequence[i] = 'X';
 }
 
-string userInput = "HHHTTHHHHHTT";
+string userInput = "HTHHHTTH";
 sequence = userInput.ToUpper().ToCharArray();
 
 Console.WriteLine(CheckSequence(sequence, 3, 1));
@@ -32,7 +30,7 @@ bool CheckSequence(char[] seq, int length, int numberOfStriclty)
                 currentStrictlyLength++;
                 continue;
             }
-            else if (currentStrictlyLength < length)
+            else if (currentStrictlyLength > length)
             {
                 currentStrictlyLength = 1;
                 continue;
@@ -44,5 +42,4 @@ bool CheckSequence(char[] seq, int length, int numberOfStriclty)
         }
     }
      return strictlyHowMuch == numberOfStriclty;
-
 }
