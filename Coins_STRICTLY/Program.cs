@@ -1,4 +1,6 @@
-﻿char [] sequence = new char[70];
+﻿using System.Reflection.Metadata.Ecma335;
+
+char [] sequence = new char[70];
 for (int i = 0; i < sequence.Length; i++)
 {
     sequence[i] = 'X';
@@ -7,4 +9,40 @@ for (int i = 0; i < sequence.Length; i++)
 string userInput = "HHHTTHHHHHTT";
 sequence = userInput.ToUpper().ToCharArray();
 
+Console.WriteLine(CheckSequence(sequence, 3, 1));
+Console.ReadLine();
 
+bool CheckSequence(char[] seq, int length, int numberOfStriclty)
+{
+    int strictlyHowMuch = 0;
+    int currentStrictlyLength = 0;
+
+    for (int i = 0; i < seq.Length; i++)
+    {
+        if (seq[i] == seq[i + 1])
+        {
+            if(currentStrictlyLength < length)
+            {
+                currentStrictlyLength++;
+                continue;
+            }
+            else if (currentStrictlyLength == length)
+            {
+                strictlyHowMuch++;
+                currentStrictlyLength++;
+                continue;
+            }
+            else if (currentStrictlyLength < length)
+            {
+                currentStrictlyLength = 1;
+                continue;
+            }
+
+            //currentStrictlyLength < length ? currentStrictlyLength++;
+                                            //: currentStrictlyLength == length ?
+                                                                            // {strictlyHowMuch++; currentStrictlyLength++ } : currentLength = 1;
+        }
+    }
+     return strictlyHowMuch == numberOfStriclty;
+
+}
